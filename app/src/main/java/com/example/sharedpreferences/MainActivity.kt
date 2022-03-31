@@ -17,9 +17,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val sharedPreferences: SharedPreferences =
-            this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+            this.getSharedPreferences(sharedPrefFile, MODE_PRIVATE)
+        //MODE_PRIVATE aj bisa kgk pake context
 
         binding.btnSave.setOnClickListener {
+            //val id: Int = Integer.parseInt(binding.etInputId.text.toString())
             val id: Int? = binding.etInputId.text.toString().toIntOrNull()
             val name: String = binding.etInputName.text.toString()
             if (id == null || name == ""){
