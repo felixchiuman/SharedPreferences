@@ -21,11 +21,14 @@ class MainActivity : AppCompatActivity() {
         //MODE_PRIVATE aj bisa kgk pake context
 
         binding.btnSave.setOnClickListener {
-            //val id: Int = Integer.parseInt(binding.etInputId.text.toString())
+            //val id: Int? = Integer.parseInt(binding.etInputId.text.toString())
             val id: Int? = binding.etInputId.text.toString().toIntOrNull()
             val name: String = binding.etInputName.text.toString()
             if (id == null || name == ""){
                 Toast.makeText(this, "Data Kosong", Toast.LENGTH_SHORT).show()
+            }
+            else if (sharedPreferences.contains("id_key") || sharedPreferences.contains("name_key")){
+                Toast.makeText(this, "Data Duplikat", Toast.LENGTH_SHORT).show()
             }
             else{
                 val editor: SharedPreferences.Editor = sharedPreferences.edit()
