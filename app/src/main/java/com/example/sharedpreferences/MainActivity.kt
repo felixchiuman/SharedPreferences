@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             val id: Int? = binding.etInputId.text.toString().toIntOrNull()
             val name: String = binding.etInputName.text.toString()
-            if (id == null || name == null){
+            if (id == null || name == ""){
                 Toast.makeText(this, "Data Kosong", Toast.LENGTH_SHORT).show()
             }
             else{
